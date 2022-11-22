@@ -23,8 +23,11 @@ export default function Banner() {
     }, [])
     return (
         <div className="relative bg-slate-800 my-4 rounded-md p-4 max-md:flex-col flex justify-between  items-center h-[350px] ">
-            <div className="flex items-center h-1/2">
-                <h2 ref={h2Ref} className="text-5xl font-light ml-40 max-md:ml-0 select-none">
+            <div className="flex  items-center h-1/2">
+                <h2 ref={h2Ref} className="text-5xl 
+                font-light ml-40 max-md:ml-0 select-none
+                text-center
+                ">
                 </h2>
             </div>
             {profilePic && (
