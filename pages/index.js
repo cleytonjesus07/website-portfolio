@@ -7,11 +7,11 @@ import images from '../public/assets/images';
 import { BsGithub, BsInstagram, BsTwitter, BsLink, BsLinkedin } from 'react-icons/bs'
 import { HiOutlineUsers } from 'react-icons/hi'
 import { RiUserFollowLine } from 'react-icons/ri'
-import {TbBrandNextjs} from 'react-icons/tb'
-import {FaReact} from 'react-icons/fa'
-import {AiFillHtml5} from 'react-icons/ai'
-import {DiCss3,DiJavascript1} from 'react-icons/di'
-import {SiTailwindcss} from 'react-icons/si'
+import { TbBrandNextjs } from 'react-icons/tb'
+import { FaReact } from 'react-icons/fa'
+import { AiFillHtml5 } from 'react-icons/ai'
+import { DiCss3, DiJavascript1 } from 'react-icons/di'
+import { SiTailwindcss } from 'react-icons/si'
 import Head from "next/head";
 
 export default function Home() {
@@ -79,16 +79,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h2 className="text-3xl ml-10">
+        <h2 className="text-3xl mt-10 ml-10">
           Tecnologias que mais utilizo no momento
         </h2>
-        <div className="flex mt-5 items-center space-x-5 ml-10">
-            <TbBrandNextjs size={35} title="nextJS"/>
-            <FaReact size={25} title="ReactJS"/>
-            <AiFillHtml5 size={25} title="Html 5"/>
-            <DiCss3 size={25} title="CSS3"/>
-            <DiJavascript1 size={25} title="Javascript"/>
-            <SiTailwindcss size={25} title="Tailwind Css"/>
+        <div className="flex mt-5  items-center space-x-5 ml-10">
+          <TbBrandNextjs size={35} title="nextJS" />
+          <FaReact size={25} title="ReactJS" />
+          <AiFillHtml5 size={25} title="Html 5" />
+          <DiCss3 size={25} title="CSS3" />
+          <DiJavascript1 size={25} title="Javascript" />
+          <SiTailwindcss size={25} title="Tailwind Css" />
         </div>
         <Container>
           <h2 className="font-bold text-center text-xl">Projetos</h2>
