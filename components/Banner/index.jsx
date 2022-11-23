@@ -19,7 +19,7 @@ export default function Banner({dataUser}) {
             }
             h2Ref.current.innerHTML += word[index++]
         }, 500);
-        getImage();
+       /*  getImage(); */
         return () => clearInterval(idInterval.current);
     }, [])
     return (
