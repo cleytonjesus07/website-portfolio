@@ -57,6 +57,7 @@ export default function Home({ dataUser, repos }) {
         <meta name="keywords" content="HTML, CSS, JavaScript,NEXT JS, Next JS, next js, portfolio, cleyton_jesus07" />
         <meta name="author" content="Cleyton Jesus" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google" content="nositelinkssearchbox"></meta>
         <title>{dataUser.login}</title>
       </Head>
       <div className="px-10 pt-2">
