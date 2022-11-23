@@ -19,6 +19,7 @@ export default function Home() {
   const [dataUser, setDataUser] = useState();
   const [repos, setRepos] = useState([]);
   const [showGitProjects, setShowGitProjects] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function getRepos() {
       const arrayRepo = [];
@@ -42,8 +43,9 @@ export default function Home() {
     getRepos();
   }, [])
 
+
   if (!repos.length && !dataUser) {
-    return <div className="h-screen w-full flex justify-center items-center font-extrabold text-2xl">Um momento, por favor...</div>
+    return <div className="h-screen w-full flex flex-col-reverse justify-center items-center font-extrabold text-2xl">Um momento, por favor... <span className="w-16 h-16 border-l-4 rounded-full animate-spin my-5"></span></div>
   }
 
   return (
@@ -68,7 +70,7 @@ export default function Home() {
             <p>
               {dataUser.bio}
             </p>
-            <div className="flex space-x-3 flex-col justify-center items-end mr-10">
+            <div className="flex space-x-3 flex-col justify-center items-end mr-10 mt-5">
               <div className="flex space-x-1" title="Seguidores">
                 <span>Seguidores: </span>
                 <HiOutlineUsers size={20} />
@@ -102,11 +104,16 @@ export default function Home() {
         </div>
         <div id="projetos">
           {(showGitProjects) ?
-            GitProjects(repos)
-            : DrawsProjects(images)}
-          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
+            <GitProjects repos={repos} />
+            : (
+              <>
+                <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />
+                <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
+              </>
+            )
+          }
         </div>
-        <footer id="contato" className="flex justify-center items-center py-4 h-auto bg-gray-800 mt-10 px-10">
+        <footer id="contato" className="flex flex-col justify-center items-center py-2 h-auto bg-gray-800 mt-10 px-10">
           <div className="block  font-extralight text-center">
             Me siga nas redes sociais
             <div className=" flex justify-center items-center flex-wrap mt-10  ">
@@ -120,6 +127,9 @@ export default function Home() {
               <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
             </div>
           </div>
+          <div className="mt-5 font-extralight">
+            <span>Desenvolvido por @cleyton_jesus07</span>
+          </div>
         </footer>
       </div>
     </>
@@ -127,7 +137,7 @@ export default function Home() {
 }
 
 
-function GitProjects(repos) {
+function GitProjects({ repos }) {
   return (
     <div className=" flex flex-wrap justify-center ">
       {
@@ -148,14 +158,26 @@ function GitProjects(repos) {
   )
 }
 
-function DrawsProjects(images) {
+function DrawsProjects({ images, isLoading, setIsLoading }) {
+
   return (
     <div className="flex  flex-wrap justify-center">
       {images.map(({ name, src, desc, link }, index) => {
         return (
-          <Link className="cover relative m-5 overflow-hidden w-80 h-40" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
-            <span className="absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
-            {(src.includes('.mp4')) ? <video className="w-full h-full object-cover object-center" src={src} loop autoPlay /> : <Image src={src} fill={true} alt={desc} priority={true} className="images" />}
+          <Link className="cover relative m-5 overflow-hidden flex w-80 h-40 justify-center items-center" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
+            <span className="info absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
+
+            <span className={`absolute w-16 h-16 border-l-4 rounded-full animate-spin my-5 ${!isLoading ? 'hidden' : ''}`}></span>
+
+            {(src.includes('.mp4')) ?
+              <video className={`w-full h-full object-cover object-center ${isLoading ? 'hidden': ''}`} src={src} loop autoPlay /> :
+              <Image src={src} alt={desc} fill="cover" loading="eager" className={`images ${isLoading ? 'hidden' : ''}`} sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+                onLoadingComplete={() => setIsLoading(false)}
+              />
+
+            }
           </Link>
         )
       })}
