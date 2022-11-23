@@ -53,7 +53,7 @@ export default function Home({ dataUser, repos }) {
     <>
       <Head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Desenvolvi meu website/portfólio, onde há os meus projetos.😄" />
+        <meta name="description" content=" Website/portfólio, onde há os meus projetos.😄" />
         <meta name="keywords" content="HTML, CSS, JavaScript,NEXT JS, Next JS, next js, portfolio, cleyton_jesus07" />
         <meta name="author" content="Cleyton Jesus" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
