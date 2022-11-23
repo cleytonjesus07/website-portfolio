@@ -25,3 +25,11 @@ body {
 
   left: 0 !important;
 }
+
+.link:hover{
+  background-color: white;
+}
+
+.link:hover > *{
+  fill: rgb(31 41 55);
+}

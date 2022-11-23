@@ -101,20 +101,20 @@ export default function Home() {
           {(showGitProjects) ?
             GitProjects(repos)
             : DrawsProjects(images)}
-          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:underline flex my-8 mx-auto justify-center  w-80 ">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
+          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
         </div>
-        <footer id="contato" className="block py-4 h-40 bg-gray-800 mt-10 text-center">
-          <div className="block font-extralight justify-center">
+        <footer id="contato" className="flex justify-center items-center py-4 h-auto bg-gray-800 mt-10 px-10">
+          <div className="block  font-extralight text-center">
             Me siga nas redes sociais
-            <div className="flex space-x-4 justify-center mt-4">
-              <Link href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
-              <Link href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
-              <Link href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
-              <Link href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
-              <Link href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
-              <Link href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
-              <Link href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
-              <Link href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
+            <div className=" flex justify-center items-center flex-wrap mt-10  ">
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
+              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
             </div>
           </div>
         </footer>
