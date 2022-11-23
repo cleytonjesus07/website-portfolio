@@ -61,7 +61,7 @@ export default function Home({ dataUser, repos }) {
       </Head>
       <div className="px-10 pt-2">
         <Header />
-        <Banner />
+        <Banner dataUser={dataUser} />
         <Container>
           <h2 id="sobre" className="font-bold text-center text-xl">Sobre</h2>
         </Container>

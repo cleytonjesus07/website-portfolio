@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 
-export default function Banner() {
-    const [profilePic, setProfilePic] = useState();
+export default function Banner({dataUser}) {
+    /* const [profilePic, setProfilePic] = useState(); */
+    const profilePic = dataUser.avatar_url
     const h2Ref = useRef(), idInterval = useRef();
     useEffect(() => {
-        async function getImage() {
+      /*   async function getImage() {
             let imageUrl = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' });
             imageUrl = await imageUrl.json();
             setProfilePic(imageUrl.avatar_url)
-        }
+        } */
 
         const word = "Bem-vindo ao meu portfólio.😃";
         let index = 0;
