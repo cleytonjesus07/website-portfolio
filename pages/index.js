@@ -11,7 +11,7 @@ import { TbBrandNextjs } from 'react-icons/tb'
 import { FaReact } from 'react-icons/fa'
 import { AiFillHtml5 } from 'react-icons/ai'
 import { DiCss3, DiJavascript1 } from 'react-icons/di'
-import { SiTailwindcss } from 'react-icons/si'
+import { SiTailwindcss, SiArtstation, SiDeviantart, SiBehance } from 'react-icons/si'
 import Head from "next/head";
 
 export default function Home() {
@@ -101,17 +101,20 @@ export default function Home() {
           {(showGitProjects) ?
             GitProjects(repos)
             : DrawsProjects(images)}
-          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:underline flex my-0 mx-auto justify-center  w-80 ">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
+          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:underline flex my-8 mx-auto justify-center  w-80 ">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
         </div>
         <footer id="contato" className="block py-4 h-40 bg-gray-800 mt-10 text-center">
           <div className="block font-extralight justify-center">
             Me siga nas redes sociais
             <div className="flex space-x-4 justify-center mt-4">
               <Link href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
+              <Link href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
               <Link href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
               <Link href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
               <Link href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
-              <Link href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
+              <Link href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
+              <Link href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
+              <Link href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
             </div>
           </div>
         </footer>
