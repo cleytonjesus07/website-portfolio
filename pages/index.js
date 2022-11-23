@@ -15,12 +15,13 @@ import { SiTailwindcss, SiArtstation, SiDeviantart, SiBehance } from 'react-icon
 import Head from "next/head";
 import Image from "next/image";
 
-export default function Home() {
-  const [dataUser, setDataUser] = useState();
-  const [repos, setRepos] = useState([]);
+export default function Home({ dataUser, repos }) {
   const [showGitProjects, setShowGitProjects] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
+
+  /* const [dataUser, setDataUser] = useState();
+  const [repos, setRepos] = useState([]); */
+  /* useEffect(() => {
     async function getRepos() {
       const arrayRepo = [];
       let user = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' })
@@ -41,7 +42,7 @@ export default function Home() {
 
     }
     getRepos();
-  }, [])
+  }, []) */
 
 
   if (!repos.length && !dataUser) {
@@ -176,4 +177,16 @@ function DrawsProjects({ images, isLoading, setIsLoading }) {
       })}
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  let dataUser = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' })
+  let repos = await fetch('https://api.github.com/users/cleytonjesus07/repos', { next: { revalidate: (60 * 60) } });
+  dataUser = await dataUser.json();
+  repos = await repos.json();
+  repos = repos.slice(0, 6);
+
+  // Pass data to the page via props
+  return { props: { dataUser, repos } }
 }
