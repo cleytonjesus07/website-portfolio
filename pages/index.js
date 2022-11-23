@@ -13,6 +13,7 @@ import { AiFillHtml5 } from 'react-icons/ai'
 import { DiCss3, DiJavascript1 } from 'react-icons/di'
 import { SiTailwindcss, SiArtstation, SiDeviantart, SiBehance } from 'react-icons/si'
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   const [dataUser, setDataUser] = useState();
@@ -67,12 +68,14 @@ export default function Home() {
             <p>
               {dataUser.bio}
             </p>
-            <div className="flex space-x-3 justify-end items-center mr-10">
+            <div className="flex space-x-3 flex-col justify-center items-end mr-10">
               <div className="flex space-x-1" title="Seguidores">
+                <span>Seguidores: </span>
                 <HiOutlineUsers size={20} />
                 <p>{dataUser.followers}</p>
               </div>
               <div className="flex space-x-1" title="Seguindo">
+                <span>Seguindo: </span>
                 <RiUserFollowLine size={20} />
                 <p>{dataUser.following}</p>
               </div>
@@ -147,29 +150,14 @@ function GitProjects(repos) {
 
 function DrawsProjects(images) {
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex  flex-wrap justify-center">
       {images.map(({ name, src, desc, link }, index) => {
-        if (!src.includes('.mp4')) {
-          return (
-            <Link key={index} href={link} target="_blank" referrerPolicy="no-referrer">
-              <div className="cover relative bg-gray-800 w-80 h-40 m-5 rounded-lg hover:scale-110 transition-all ease-in hover:cursor-pointer flex  items-center overflow-hidden"
-                style={{ background: `url(${src})`, backgroundPosition: 'top', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
-              >
-                <span className="absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
-              </div>
-            </Link>
-          )
-        } else {
-          return (
-            <Link key={index} href={link} target="_blank" referrerPolicy="no-referrer">
-              <div className=" cover relative bg-gray-800 w-80 h-40 m-5 rounded-lg hover:scale-110 transition-all ease-in hover:cursor-pointer flex  items-center overflow-hidden"
-              >
-                <span className=" absolute bg-black bg-opacity-90 h-full flex items-center w-full flex-col justify-center font-bold">{name}<p className="text-center mt-5 font-thin">{desc}</p></span>
-                <video className="w-full h-full object-cover object-center" src={src} loop autoPlay />
-              </div>
-            </Link>
-          )
-        }
+        return (
+          <Link className="cover relative m-5 overflow-hidden w-80 h-40" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
+            <span className="absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
+            {(src.includes('.mp4')) ? <video className="w-full h-full object-cover object-center" src={src} loop autoPlay /> : <Image src={src} fill={true} alt={desc} priority={true} className="images" />}
+          </Link>
+        )
       })}
     </div>
   )

@@ -33,3 +33,8 @@ body {
 .link:hover > *{
   fill: rgb(31 41 55);
 }
+
+.images{
+  object-position: top;
+  object-fit: cover;
+}

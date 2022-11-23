@@ -1,4 +1,4 @@
-const basePath = '../assets/images/'
+const basePath = '/assets/images/'
 const images = [
     {
         name:"Banner para twitch",
