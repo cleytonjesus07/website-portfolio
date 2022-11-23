@@ -103,15 +103,8 @@ export default function Home() {
           <button onClick={() => setShowGitProjects(false)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: !showGitProjects ? 1 : .5 }}>Ilustração</button>
         </div>
         <div id="projetos">
-          {(showGitProjects) ?
-            <GitProjects repos={repos} />
-            : (
-              <>
-                <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />
-                <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
-              </>
-            )
-          }
+          {(showGitProjects) ? <GitProjects repos={repos} /> : <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />}
+          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
         </div>
         <footer id="contato" className="flex flex-col justify-center items-center py-2 h-auto bg-gray-800 mt-10 px-10">
           <div className="block  font-extralight text-center">
@@ -170,7 +163,7 @@ function DrawsProjects({ images, isLoading, setIsLoading }) {
             <span className={`absolute w-16 h-16 border-l-4 rounded-full animate-spin my-5 ${!isLoading ? 'hidden' : ''}`}></span>
 
             {(src.includes('.mp4')) ?
-              <video className={`w-full h-full object-cover object-center ${isLoading ? 'hidden': ''}`} src={src} loop autoPlay /> :
+              <video className={`w-full h-full object-cover object-center ${isLoading ? 'hidden' : ''}`} src={src} loop autoPlay /> :
               <Image src={src} alt={desc} fill="cover" loading="eager" className={`images ${isLoading ? 'hidden' : ''}`} sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
