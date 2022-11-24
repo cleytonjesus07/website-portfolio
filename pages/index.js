@@ -52,7 +52,6 @@ export default function Home({ dataUser, repos }) {
   return (
     <>
       <Head>
-        <meta charset="UTF-8" />
         <meta name="title" content="Portfólio de Cleyton Jesus"></meta>
         <meta name="description" content="Website/portfólio, onde há os meus projetos.😄" />
         <meta name="keywords" content="HTML, CSS, JavaScript,NEXT JS, Next JS, next js, portfolio, cleyton_jesus07" />
