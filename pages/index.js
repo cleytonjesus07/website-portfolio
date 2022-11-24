@@ -118,8 +118,8 @@ export default function Home({ dataUser, repos }) {
           <h2 className="font-bold text-center text-xl">Projetos</h2>
         </Container>
         <div className="text-center space-x-10">
-          <button onClick={() => setShowGitProjects(true)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: showGitProjects ? 1 : .5 }}>Programação</button>
-          <button onClick={() => setShowGitProjects(false)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: !showGitProjects ? 1 : .5 }}>Ilustração</button>
+          <button type="button" onClick={() => setShowGitProjects(true)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: showGitProjects ? 1 : .5 }}>Programação</button>
+          <button type="button" onClick={() => setShowGitProjects(false)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: !showGitProjects ? 1 : .5 }}>Ilustração</button>
         </div>
         <div id="projetos">
           {(showGitProjects) ? <GitProjects repos={repos} /> : <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />}
