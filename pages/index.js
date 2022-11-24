@@ -138,8 +138,8 @@ export default function Home({ dataUser, repos }) {
               <Link title="Link para o meu behance" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
             </div>
           </div>
-          <div className="mt-5 font-extralight text-sm">
-            <span>Desenvolvido por @cleyton_jesus07</span>
+          <div className="mt-5 font-extralight">
+            <span className="text-sm">Desenvolvido por @cleyton_jesus07</span>
           </div>
         </footer>
       </div>
