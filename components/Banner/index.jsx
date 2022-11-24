@@ -37,7 +37,7 @@ export default function Banner({ dataUser }) {
             </div>
             {profilePic && (
                 <>
-                    <Image src={profilePic} width={400} height={400} className="profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
+                    <Image priority={true} src={profilePic} width={400} height={400} className="profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
                     shadow-inner shadow-black
                     bg-gray-900
                     right-5
