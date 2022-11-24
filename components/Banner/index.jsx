@@ -1,15 +1,16 @@
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react"
 
-export default function Banner({dataUser}) {
+export default function Banner({ dataUser }) {
     /* const [profilePic, setProfilePic] = useState(); */
     const profilePic = dataUser.avatar_url
     const h2Ref = useRef(), idInterval = useRef();
     useEffect(() => {
-      /*   async function getImage() {
-            let imageUrl = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' });
-            imageUrl = await imageUrl.json();
-            setProfilePic(imageUrl.avatar_url)
-        } */
+        /*   async function getImage() {
+              let imageUrl = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' });
+              imageUrl = await imageUrl.json();
+              setProfilePic(imageUrl.avatar_url)
+          } */
 
         const word = "Bem-vindo ao meu portfólio.😃";
         let index = 0;
@@ -19,7 +20,7 @@ export default function Banner({dataUser}) {
             }
             h2Ref.current.innerHTML += word[index++]
         }, 500);
-       /*  getImage(); */
+        /*  getImage(); */
         return () => clearInterval(idInterval.current);
     }, [])
     return (
@@ -35,16 +36,19 @@ export default function Banner({dataUser}) {
                 </h2>
             </div>
             {profilePic && (
-                <div style={{ background: `url(${profilePic})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', zIndex: 1 }}
-                    className=" absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
-                shadow-inner shadow-black
-                bg-gray-900
-                right-5
-                max-md:right-auto
-                 w-80 h-80
-                 max-md:w-44 max-md:h-44
-                ">
-                </div>
+                <>
+                    <Image src={profilePic} width={400} height={400} className="profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
+                    shadow-inner shadow-black
+                    bg-gray-900
+                    right-5
+                    max-md:right-auto
+                    w-80 h-80
+                    max-md:w-44 max-md:h-44
+                " />
+                    {/* <div style={{ background: `url(${profilePic})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', zIndex: 1 }}
+                    >
+                </div> */}
+                </>
             )}
         </div>
     )

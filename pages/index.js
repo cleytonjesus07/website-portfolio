@@ -74,7 +74,7 @@ export default function Home({ dataUser, repos }) {
         <meta property="twitter:image" content={dataUser.avatar_url}></meta>
 
         {/* --------------------------- */}
-        <title>Portfólio - {dataUser.login}</title>
+        <title>Portfólio - @cleyton_jesus07</title>
       </Head>
       <div className="px-10 pt-2">
         <Header />
