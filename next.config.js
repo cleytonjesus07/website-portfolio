@@ -15,6 +15,14 @@ const securityHeaders =
     {
       key: 'Content-Security-Policy',
       value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+    },
+    {
+      key: 'X-XSS-Protection',
+      value: '1; mode=block'
+    },
+    {
+      key: 'X-DNS-Prefetch-Control',
+      value: 'on'
     }
   ]
 const nextConfig = {
