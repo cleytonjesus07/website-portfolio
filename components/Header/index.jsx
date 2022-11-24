@@ -7,10 +7,10 @@ export default function Header() {
                 Cleyton <span className="font-thin">Jesus</span>
             </span>
             <nav className="max-md:mt-5">
-                <ul className="block space-x-4 text-center">
-                    <Link href={"#sobre"}>Sobre</Link>
-                    <Link href={"#projetos"}>Projetos</Link>
-                    <Link href={"#contato"}>Contato</Link>
+                <ul className="flex max-md:justify-center space-x-4 ">
+                    <li><Link href={"#sobre"}>Sobre</Link></li>
+                    <li><Link href={"#projetos"}>Projetos</Link></li>
+                    <li><Link href={"#contato"}>Contato</Link></li>
                 </ul>
             </nav>
         </header>

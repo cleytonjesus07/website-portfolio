@@ -123,20 +123,20 @@ export default function Home({ dataUser, repos }) {
         </div>
         <div id="projetos">
           {(showGitProjects) ? <GitProjects repos={repos} /> : <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />}
-          <Link href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
+          <Link title="link para ver mais a respeito dos meus projetos" href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
         </div>
         <footer id="contato" className="flex flex-col justify-center items-center py-2 h-auto bg-gray-800 mt-10 px-10">
           <div className="block  font-extralight text-center">
             Me siga nas redes sociais
             <div className=" flex justify-center items-center flex-wrap mt-10  ">
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
-              <Link className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
+              <Link title="Link para o meu linktree" className="link border rounded-md p-2 mx-2 my-2" href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
+              <Link title="Link para o meu linkedin" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
+              <Link title="Link para o meu github" className="link border rounded-md p-2 mx-2 my-2" href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
+              <Link title="Link para o meu instagram" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
+              <Link title="Link para o meu twitter" className="link border rounded-md p-2 mx-2 my-2" href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
+              <Link title="Link para o meu artstation" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
+              <Link title="Link para o meu deviantart" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
+              <Link title="Link para o meu behance" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
             </div>
           </div>
           <div className="mt-5 font-extralight">
@@ -155,7 +155,7 @@ function GitProjects({ repos }) {
       {
         repos.map(({ name, html_url }, index) => {
           return (
-            <Link key={index} href={html_url} referrerPolicy={"no-referrer"} target={"_blank"}>
+            <Link title={name} key={index} href={html_url} referrerPolicy={"no-referrer"} target={"_blank"}>
               <div className="relative bg-gray-800 overflow-hidden w-80 h-40 m-5 rounded-lg hover:scale-110 transition-all ease-in hover:cursor-pointer flex pl-4 items-center ">
                 <span className="absolute flex justify-end opacity-10 -right-16">
                   <BsGithub size={200} />
@@ -176,7 +176,7 @@ function DrawsProjects({ images, isLoading, setIsLoading }) {
     <div className="flex  flex-wrap justify-center">
       {images.map(({ name, src, desc, link }, index) => {
         return (
-          <Link className="cover relative m-5 overflow-hidden flex w-80 h-40 justify-center items-center" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
+          <Link title="name" className="cover relative m-5 overflow-hidden flex w-80 h-40 justify-center items-center" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
             <span className="info absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
 
             <span className={`absolute w-16 h-16 border-l-4 rounded-full animate-spin my-5 ${!isLoading ? 'hidden' : ''}`}></span>
