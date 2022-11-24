@@ -65,14 +65,14 @@ export default function Home({ dataUser, repos }) {
         <meta property="og:url" content="https://website-portfolio-pink.vercel.app/"></meta>
         <meta property="og:title" content="Portfólio de Cleyton Jesus"></meta>
         <meta property="og:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
-        <meta property="og:image" content="/assets/images/projeto.png"></meta>
+        <meta property="og:image" content="https://website-portfolio-pink.vercel.app/public/assets/images/projeto.png"></meta>
 
 
         <meta property="twitter:card" content="summary_large_image"></meta>
         <meta property="twitter:url" content="https://website-portfolio-pink.vercel.app/"></meta>
         <meta property="twitter:title" content="Portfólio de Cleyton Jesus"></meta>
         <meta property="twitter:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
-        <meta property="twitter:image" content="/assets/images/projeto.png"></meta>
+        <meta property="twitter:image" content="https://website-portfolio-pink.vercel.app/public/assets/images/projeto.png"></meta>
 
         {/* --------------------------- */}
         <title>Portfólio - {dataUser.login}</title>
