@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Banner from "../components/Banner";
 import Container from "../components/Container";
 import Header from "../components/Header";
@@ -53,12 +53,30 @@ export default function Home({ dataUser, repos }) {
     <>
       <Head>
         <meta charset="UTF-8" />
-        <meta name="description" content=" Website/portfólio, onde há os meus projetos.😄" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="title" content="Portfólio de Cleyton Jesus"></meta>
+        <meta name="description" content="Website/portfólio, onde há os meus projetos.😄" />
         <meta name="keywords" content="HTML, CSS, JavaScript,NEXT JS, Next JS, next js, portfolio, cleyton_jesus07" />
         <meta name="author" content="Cleyton Jesus" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google" content="nositelinkssearchbox"></meta>
-        <title>{dataUser.login}</title>
+
+        {/* ---------------------------*/}
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:url" content="https://website-portfolio-pink.vercel.app/"></meta>
+        <meta property="og:title" content="Portfólio de Cleyton Jesus"></meta>
+        <meta property="og:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
+        <meta property="og:image" content="public/assets/images/projeto.png"></meta>
+
+
+        <meta property="twitter:card" content="summary_large_image"></meta>
+        <meta property="twitter:url" content="https://website-portfolio-pink.vercel.app/"></meta>
+        <meta property="twitter:title" content="Portfólio de Cleyton Jesus"></meta>
+        <meta property="twitter:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
+        <meta property="twitter:image" content="public/assets/images/projeto.png"></meta>
+
+        {/* --------------------------- */}
+        <title>Portfólio - {dataUser.login}</title>
       </Head>
       <div className="px-10 pt-2">
         <Header />
