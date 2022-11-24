@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 export default function Banner({ dataUser }) {
-    /* const [profilePic, setProfilePic] = useState(); */
+   
     const profilePic = dataUser.avatar_url
     const h2Ref = useRef(), idInterval = useRef();
     useEffect(() => {
