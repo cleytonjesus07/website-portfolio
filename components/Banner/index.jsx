@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react"
 
 export default function Banner({ dataUser }) {
-   
+
     const profilePic = dataUser.avatar_url
     const h2Ref = useRef(), idInterval = useRef();
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function Banner({ dataUser }) {
                 </h2>
             </div>
             {profilePic && (
-                <Image priority={true} src={profilePic} width={400} height={400} className="profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
+                <Image alt="profile picture" priority={true} src={profilePic} width={400} height={400} className="profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
                     shadow-inner shadow-black
                     bg-gray-900
                     right-5

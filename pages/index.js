@@ -4,78 +4,29 @@ import Banner from "../components/Banner";
 import Container from "../components/Container";
 import Header from "../components/Header";
 import images from '../public/assets/images';
-import { BsGithub, BsInstagram, BsTwitter, BsLink, BsLinkedin } from 'react-icons/bs'
 import { HiOutlineUsers } from 'react-icons/hi'
 import { RiUserFollowLine } from 'react-icons/ri'
 import { TbBrandNextjs } from 'react-icons/tb'
 import { FaReact } from 'react-icons/fa'
 import { AiFillHtml5 } from 'react-icons/ai'
 import { DiCss3, DiJavascript1 } from 'react-icons/di'
-import { SiTailwindcss, SiArtstation, SiDeviantart, SiBehance } from 'react-icons/si'
-import Head from "next/head";
-import Image from "next/image";
+import { SiTailwindcss} from 'react-icons/si'
+import GitProjects from "../components/Projects/GitProjects";
+import DrawsProjects from "../components/Projects/DrawsProjects";
+import Layout from "../components/Layout";
+import SocialMedias from "../components/SocialMedias";
 
 export default function Home({ dataUser, repos }) {
+
   const [showGitProjects, setShowGitProjects] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  /* const [dataUser, setDataUser] = useState();
-  const [repos, setRepos] = useState([]); */
-  /* useEffect(() => {
-    async function getRepos() {
-      const arrayRepo = [];
-      let user = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' })
-      let res = await fetch('https://api.github.com/users/cleytonjesus07/repos', { next: { revalidate: (60 * 60) } });
-
-      user = await user.json();
-      res = await res.json();
-
-      res.forEach((repo, index) => {
-        if (index > 5) {
-          return;
-        }
-        arrayRepo.push(repo);
-      })
-
-      setRepos(arrayRepo)
-      setDataUser(user)
-
-    }
-    getRepos();
-  }, []) */
-
-
-  if (!repos.length && !dataUser) {
+  if (!repos?.length && !Object.keys(dataUser).length) {
     return <div className="h-screen w-full flex flex-col-reverse justify-center items-center font-extrabold text-2xl">Um momento, por favor... <span className="w-16 h-16 border-l-4 rounded-full animate-spin my-5"></span></div>
   }
 
   return (
-    <>
-      <Head>
-        <meta name="title" content="Portfólio de Cleyton Jesus"></meta>
-        <meta name="description" content="Website/portfólio, onde há os meus projetos.😄" />
-        <meta name="keywords" content="HTML, CSS, JavaScript,NEXT JS, Next JS, next js, portfolio, cleyton_jesus07" />
-        <meta name="author" content="Cleyton Jesus" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="google" content="nositelinkssearchbox"></meta>
-
-        {/* ---------------------------*/}
-        <meta property="og:type" content="website"></meta>
-        <meta property="og:url" content="https://website-portfolio-pink.vercel.app/"></meta>
-        <meta property="og:title" content="Portfólio de Cleyton Jesus"></meta>
-        <meta property="og:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
-        <meta property="og:image" content={dataUser.avatar_url}></meta>
-
-
-        <meta property="twitter:card" content="summary_large_image"></meta>
-        <meta property="twitter:url" content="https://website-portfolio-pink.vercel.app/"></meta>
-        <meta property="twitter:title" content="Portfólio de Cleyton Jesus"></meta>
-        <meta property="twitter:description" content="Website/portfólio, onde há os meus projetos.😄"></meta>
-        <meta property="twitter:image" content={dataUser.avatar_url}></meta>
-
-        {/* --------------------------- */}
-        <title>Portfólio - @cleyton_jesus07</title>
-      </Head>
+    <Layout dataUser={dataUser}>
       <div className="px-10 pt-2">
         <Header />
         <Banner dataUser={dataUser} />
@@ -128,14 +79,7 @@ export default function Home({ dataUser, repos }) {
           <div className="block  font-extralight text-center">
             Me siga nas redes sociais
             <div className=" flex justify-center items-center flex-wrap mt-10  ">
-              <Link title="Link para o meu linktree" className="link border rounded-md p-2 mx-2 my-2" href={"https://linktr.ee/cleyton_jesus07"}><BsLink size={30} /></Link>
-              <Link title="Link para o meu linkedin" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.linkedin.com/in/cleyton-jesus-dos-santos-santana-655045149/"}><BsLinkedin size={30} /></Link>
-              <Link title="Link para o meu github" className="link border rounded-md p-2 mx-2 my-2" href={"https://github.com/cleytonjesus07"}><BsGithub size={30} /></Link>
-              <Link title="Link para o meu instagram" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.instagram.com/cleyton_jesus07/"}><BsInstagram size={30} /></Link>
-              <Link title="Link para o meu twitter" className="link border rounded-md p-2 mx-2 my-2" href={"https://twitter.com/cleyton_jesus07"}><BsTwitter size={30} /></Link>
-              <Link title="Link para o meu artstation" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.artstation.com/cleyton_jesus07"}><SiArtstation size={30} /></Link>
-              <Link title="Link para o meu deviantart" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.deviantart.com/cleytonjesus07"}><SiDeviantart size={30} /></Link>
-              <Link title="Link para o meu behance" className="link border rounded-md p-2 mx-2 my-2" href={"https://www.behance.net/cleyton_jesus07"}><SiBehance size={30} /></Link>
+              <SocialMedias />
             </div>
           </div>
           <div className="mt-5 font-extralight">
@@ -143,58 +87,14 @@ export default function Home({ dataUser, repos }) {
           </div>
         </footer>
       </div>
-    </>
+    </Layout>
   )
 }
 
 
-function GitProjects({ repos }) {
-  return (
-    <div className=" flex flex-wrap justify-center ">
-      {
-        repos.map(({ name, html_url }, index) => {
-          return (
-            <Link title={name} key={index} href={html_url} referrerPolicy={"no-referrer"} target={"_blank"}>
-              <div className="relative bg-gray-800 overflow-hidden w-80 h-40 m-5 rounded-lg hover:scale-110 transition-all ease-in hover:cursor-pointer flex pl-4 items-center ">
-                <span className="absolute flex justify-end opacity-10 -right-16">
-                  <BsGithub size={200} />
-                </span>
-                {name[0].toUpperCase() + name.substr(1)}
-              </div>
-            </Link>
-          )
-        })
-      }
-    </div>
-  )
-}
 
-function DrawsProjects({ images, isLoading, setIsLoading }) {
 
-  return (
-    <div className="flex  flex-wrap justify-center">
-      {images.map(({ name, src, desc, link }, index) => {
-        return (
-          <Link title={name} className="cover relative m-5 overflow-hidden flex w-80 h-40 justify-center items-center" key={index} href={link} target="_blank" referrerPolicy="no-referrer">
-            <span className="info absolute bg-black bg-opacity-90 h-full font-bold w-full flex flex-col items-center justify-center">{name[0].toUpperCase() + name.substr(1)}<p className="text-center mt-5 font-thin">{desc}</p></span>
 
-            <span className={`absolute w-16 h-16 border-l-4 rounded-full animate-spin my-5 ${!isLoading ? 'hidden' : ''}`}></span>
-
-            {(src.includes('.mp4')) ?
-              <video className={`w-full h-full object-cover object-center ${isLoading ? 'hidden' : ''}`} src={src} loop autoPlay /> :
-              <Image src={src} alt={desc} fill="cover" loading="eager" className={`images ${isLoading ? 'hidden' : ''}`} sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-                onLoadingComplete={() => setIsLoading(false)}
-              />
-
-            }
-          </Link>
-        )
-      })}
-    </div>
-  )
-}
 
 export async function getServerSideProps() {
   // Fetch data from external API
