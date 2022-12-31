@@ -1,15 +1,15 @@
-import Image from "next/image";
-import { useEffect, useRef } from "react"
 
+/* import { useEffect, useRef } from "react"
+ */
 export default function Banner({ dataUser }) {
     const profilePic = dataUser.avatar_url
-    const h2Ref = useRef(), idInterval = useRef();
-    useEffect(() => {
-        typewriter();
-        return () => clearInterval(idInterval.current);
-    }, [])
+   /*  const h2Ref = useRef(), idInterval = useRef();
+    */ /*   useEffect(() => {
+          typewriter();
+          return () => clearInterval(idInterval.current);
+      }, []) */
 
-    function typewriter() {
+   /*  function typewriter() {
         const word = "Bem-vindo ao meu portfólio.😃";
         let index = 0;
         const timeout = 1000;
@@ -19,27 +19,21 @@ export default function Banner({ dataUser }) {
             }
             h2Ref.current.innerHTML += word[index++]
         }, timeout);
-    }
+    } */
 
     return (
-        <div className="relative bg-slate-800 my-4 rounded-md px-10 max-md:flex-col flex justify-between  items-center h-[350px] ">
-            <div className="flex items-center mt-5">
-                <h2 ref={h2Ref} className="text-4xl 
-                font-light  
-                 select-none
-                text-center
-                ml-11
-                max-md:ml-0
-                ">
-                </h2>
-            </div>
+        <div className="relative z-10 my-4 w-[90%]  mx-auto  rounded-md px-10 max-md:flex-col flex justify-between  items-center h-[350px] ">
+            
+            <div className=" z-10 absolute w-full h-full bg-gradient-to-r from-transparent to-black"></div>
+            <div className="banner absolute  w-full h-full bg-no-repeat bg-cover " style={{ backgroundImage: "url(/assets/images/banner.jpg)" }}></div>
             {profilePic && (
                 <>
                     <div
                         className={`
-                    profile absolute overflow-hidden rounded-full border-solid border-8 border-gray-800 -bottom-20 
+                        
+                    profile absolute overflow-hidden rounded-full border-solid border-8 border-black -bottom-20 
                     shadow-inner shadow-black
-                    bg-gray-900
+                    bg-black
                     right-5
                     max-md:right-auto
                     w-80 h-80
@@ -50,7 +44,7 @@ export default function Banner({ dataUser }) {
                     bg-center
                     `
                         }
-                        style={{ backgroundImage: `url(${profilePic})` }}
+                        style={{ zIndex: 999, backgroundImage: `url(${profilePic})` }}
                     >
                     </div>
 

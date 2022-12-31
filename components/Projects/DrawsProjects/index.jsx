@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function DrawsProjects({ images, isLoading, setIsLoading }) {
 
     return (
-        <div className="flex  flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center">
             {images.map(({ name, src, desc, link }, index) => {
                 return (
                     <Link title={name} className="cover relative m-5 overflow-hidden flex w-80 h-40 justify-center items-center rounded-lg" key={index} href={link} target="_blank" referrerPolicy="no-referrer">

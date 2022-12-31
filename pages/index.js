@@ -68,14 +68,14 @@ export default function Home({ dataUser, repos }) {
           <h2 className="font-bold text-center text-xl">Projetos</h2>
         </Container>
         <div className="text-center space-x-10">
-          <button type="button" onClick={() => setShowGitProjects(true)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: showGitProjects ? 1 : .5 }}>Programação</button>
-          <button type="button" onClick={() => setShowGitProjects(false)} className="bg-gray-800 px-4 py-2 rounded-t-lg w-32" style={{ opacity: !showGitProjects ? 1 : .5 }}>Ilustração</button>
+          <button type="button" onClick={() => setShowGitProjects(true)} className="bg-black px-4 py-2 rounded-t-lg w-32" style={{ opacity: showGitProjects ? 1 : .5 }}>Programação</button>
+          <button type="button" onClick={() => setShowGitProjects(false)} className="bg-black px-4 py-2 rounded-t-lg w-32" style={{ opacity: !showGitProjects ? 1 : .5 }}>Ilustração</button>
         </div>
         <div id="projetos">
           {(showGitProjects) ? <GitProjects repos={repos} /> : <DrawsProjects images={images} isLoading={isLoading} setIsLoading={setIsLoading} />}
           <Link title="link para ver mais a respeito dos meus projetos" href={showGitProjects ? "https://github.com/cleytonjesus07?tab=repositories" : "https://www.instagram.com/cleyton_jesus07/"} target="_blank" referrerPolicy="no-referrer" className="font-thin hover:bg-white hover:text-black transition-all  flex my-8 mx-auto justify-center w-48 border rounded-full p-2">Ver mais {showGitProjects ? "projetos" : "ilustrações"}</Link>
         </div>
-        <footer id="contato" className="flex flex-col justify-center items-center py-2 h-auto bg-gray-800 mt-10 px-10">
+        <footer id="contato" className="flex flex-col justify-center items-center py-2 h-auto bg-black mt-10 px-10">
           <div className="block  font-extralight text-center">
             Me siga nas redes sociais
             <div className=" flex justify-center items-center flex-wrap mt-10  ">
