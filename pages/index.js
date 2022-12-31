@@ -10,7 +10,7 @@ import { TbBrandNextjs } from 'react-icons/tb'
 import { FaReact } from 'react-icons/fa'
 import { AiFillHtml5 } from 'react-icons/ai'
 import { DiCss3, DiJavascript1 } from 'react-icons/di'
-import { SiTailwindcss} from 'react-icons/si'
+import { SiTailwindcss } from 'react-icons/si'
 import GitProjects from "../components/Projects/GitProjects";
 import DrawsProjects from "../components/Projects/DrawsProjects";
 import Layout from "../components/Layout";
@@ -98,12 +98,24 @@ export default function Home({ dataUser, repos }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
+
+
   let dataUser = await fetch('https://api.github.com/users/cleytonjesus07', { cache: 'force-cache' })
   let repos = await fetch('https://api.github.com/users/cleytonjesus07/repos', { next: { revalidate: (60 * 60) } });
   dataUser = await dataUser.json();
   repos = await repos.json();
-  repos = repos.slice(0, 6);
+
+  /* Selecionando os meus projetos preferidos(total de 6) */
+
+  const desiredRepos = ['music-lobby', 'customSoundPlayer', 'Post-como-o-do-Instagram',
+    'Playstation4PasswordScreen', 'PlayerDeVideoCustomizado', 'CloneInstagram']
+  const myRepos = [];
+  repos.map((repo) => {
+    if (desiredRepos.includes(repo.name)) {
+      myRepos.push(repo)
+    }
+  });
 
   // Pass data to the page via props
-  return { props: { dataUser, repos } }
+  return { props: { dataUser, repos: myRepos } }
 }
